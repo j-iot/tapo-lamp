@@ -8,7 +8,7 @@ on:
     types: [created]
 
 jobs:
-  publish-gpr:
+  publish-package:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: 12
       - run: |
-          echo "//npm.pkg.github.com/:_authToken=$NODE_AUTH_TOKEN" > ~/.npmrc
+          npm set registry "//npm.pkg.github.com/:_authToken=$NODE_AUTH_TOKEN"
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
