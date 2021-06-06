@@ -1,7 +1,7 @@
 const lib = require('tp-link-tapo-connect');
 
 const PLATFORM_NAME = 'TapoLightPlatform';
-const PLUGIN_NAME = 'homebridge-lamp';
+const PLUGIN_NAME = 'homebridge-tapo-lamp';
 
 module.exports = (api) => {
   api.registerPlatform('TapoLightPlatform', TapoLightPlatform);
