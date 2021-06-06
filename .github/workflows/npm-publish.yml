@@ -15,11 +15,11 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - run: |
-          npm set registry "//npm.pkg.github.com/:_authToken=$NODE_AUTH_TOKEN"
-          npm publish
+          registry-url: '//npm.pkg.github.com'
+          scope: '@j-iot'
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - run: npm publish
